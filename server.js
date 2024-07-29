@@ -89,7 +89,7 @@
         );
     
         // Delete the developer
-        await developer.remove();
+        await Developer.deleteOne({ _id: req.params.id }).session(session); 
         await session.commitTransaction();
         session.endSession();
     
@@ -269,7 +269,7 @@
         );
     
         // Delete the project
-        await project.remove();
+        await Project.deleteOne({ _id: req.params.id }).session(session); 
         await session.commitTransaction();
         session.endSession();
     
